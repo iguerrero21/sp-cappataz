@@ -1,4 +1,4 @@
-package main.java.com.cappataz.utils;
+package main.java.com.cappataz.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

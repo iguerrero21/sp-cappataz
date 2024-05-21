@@ -1,4 +1,4 @@
-package main.java.com.cappataz.functions;
+package main.java.com.cappataz.funciones;
 
 import main.java.com.cappataz.controlador.AnimalController;
 import main.java.com.cappataz.modelo.Animal;

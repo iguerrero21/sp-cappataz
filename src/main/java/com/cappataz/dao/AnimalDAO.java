@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import main.java.com.cappataz.modelo.Animal;
-import main.java.com.cappataz.utils.DatabaseConnection;
+import main.java.com.cappataz.util.DatabaseConnection;
 
 public class AnimalDAO {
     public void saveAnimal(Animal animal) {

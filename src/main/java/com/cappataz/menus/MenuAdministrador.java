@@ -1,8 +1,9 @@
 package main.java.com.cappataz.menus;
 
+import main.java.com.cappataz.funciones.AnimalFunctions;
+import main.java.com.cappataz.funciones.UsuarioFunctions;
+import main.java.com.cappataz.funciones.PropiedadFunctions;
 import main.java.com.cappataz.modelo.Administrador;
-import main.java.com.cappataz.functions.AnimalFunctions;
-import main.java.com.cappataz.functions.UserFunctions;
 
 import java.util.Scanner;
 
@@ -23,7 +24,11 @@ public class MenuAdministrador {
             System.out.println("2. Mostrar todos los animales");
             System.out.println("3. Registrar nuevo usuario");
             System.out.println("4. Mostrar todos los usuarios");
-            System.out.println("5. Salir");
+            System.out.println("5. Registrar nueva propiedad");
+            System.out.println("6. Crear parcelas en una propiedad");
+            System.out.println("7. Visualizar todas las propiedades");
+            System.out.println("8. Seleccionar una propiedad para ver sus parcelas");
+            System.out.println("9. Salir");
             System.out.print("Seleccione una opción: ");
             int choice = scanner.nextInt();
 
@@ -35,12 +40,24 @@ public class MenuAdministrador {
                     AnimalFunctions.mostrarAnimales();
                     break;
                 case 3:
-                    UserFunctions.registrarUsuario();
+                    UsuarioFunctions.registrarUsuario();
                     break;
                 case 4:
-                    UserFunctions.mostrarUsuarios();
+                    UsuarioFunctions.mostrarUsuarios();
                     break;
                 case 5:
+                    PropiedadFunctions.registrarPropiedad();
+                    break;
+                case 6:
+                    PropiedadFunctions.crearParcelas();
+                    break;
+                case 7:
+                    PropiedadFunctions.mostrarPropiedades();
+                    break;
+                case 8:
+                    PropiedadFunctions.verParcelasDePropiedad();
+                    break;
+                case 9:
                     exit = true;
                     break;
                 default:

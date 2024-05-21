@@ -1,7 +1,7 @@
 package main.java.com.cappataz.menus;
 
+import main.java.com.cappataz.funciones.AnimalFunctions;
 import main.java.com.cappataz.modelo.Propietario;
-import main.java.com.cappataz.functions.AnimalFunctions;
 
 import java.util.Scanner;
 

@@ -4,7 +4,7 @@ import main.java.com.cappataz.modelo.Administrador;
 import main.java.com.cappataz.modelo.Operario;
 import main.java.com.cappataz.modelo.Propietario;
 import main.java.com.cappataz.modelo.Usuario;
-import main.java.com.cappataz.utils.DatabaseConnection;
+import main.java.com.cappataz.util.DatabaseConnection;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
