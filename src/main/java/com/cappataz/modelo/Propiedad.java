@@ -1,6 +1,6 @@
 package main.java.com.cappataz.modelo;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Propiedad {
     private int id;

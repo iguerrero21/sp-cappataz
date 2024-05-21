@@ -1,31 +1,32 @@
 package main.java.com.cappataz.modelo;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Usuario {
-    private int id;
+    private int idUsuario;
     private String nombre;
     private String apellido;
     private String email;
-    private String password;
+    private String contrasena;
     private Date fechaCreacion;
     private Date fechaActualizacion;
     private int estado;
-    private String rol;
+    private int idRol;
 
-    public Usuario(int id, String nombre, String email, String rol) {
-        this.id = id;
+    public Usuario(int idUsuario, String nombre, String apellido, String email, int rol) {
+        this.idUsuario = idUsuario;
         this.nombre = nombre;
+        this.apellido = apellido;
         this.email = email;
-        this.rol = rol;
+        this.idRol = rol;
     }
     
-    public int getId() {
-        return id;
+    public int getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getNombre() {
@@ -52,12 +53,12 @@ public class Usuario {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     public Date getFechaCreacion() {
@@ -84,11 +85,11 @@ public class Usuario {
         this.estado = estado;
     }
 
-    public String getRol() {
-        return rol;
+    public int getIdRol() {
+        return idRol;
     }
 
-    public void setRol(String rol) {
-        this.rol = rol;
+    public void setIdRol(int idRol) {
+        this.idRol = idRol;
     }
 }

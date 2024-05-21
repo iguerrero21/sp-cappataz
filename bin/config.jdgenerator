@@ -1,0 +1,22 @@
+==== CONFIGS ====		
+{
+    "base_path": "c:\\Users\\Lord Vader\\VSCode Projects\\SP\\sp-cappataz\\src",
+    "out": "c:\\Users\\Lord Vader\\VSCode Projects\\SP\\sp-cappataz\\src\\javadoc",
+    "javadoc_executable": "C:\\Program Files\\Java\\jdk-18\\bin\\javadoc.exe",
+    "exclude": [],
+    "raw_params": ""
+}
+
+==== COMMAND ====
+"C:\Program Files\Java\jdk-18\bin\javadoc.exe" 
+	-sourcepath "c:\Users\Lord Vader\VSCode Projects\SP\sp-cappataz\src" 
+	-d "c:\Users\Lord Vader\VSCode Projects\SP\sp-cappataz\src\javadoc" 
+	"c:\Users\Lord Vader\VSCode Projects\SP\sp-cappataz\src\main\java\com\cappataz\controlador\UsuarioController.java"
+	"c:\Users\Lord Vader\VSCode Projects\SP\sp-cappataz\src\main\java\com\cappataz\Main.java"
+	"c:\Users\Lord Vader\VSCode Projects\SP\sp-cappataz\src\main\java\com\cappataz\modelo\Animal.java"
+	"c:\Users\Lord Vader\VSCode Projects\SP\sp-cappataz\src\main\java\com\cappataz\modelo\Lote.java"
+	"c:\Users\Lord Vader\VSCode Projects\SP\sp-cappataz\src\main\java\com\cappataz\modelo\Propiedad.java"
+	"c:\Users\Lord Vader\VSCode Projects\SP\sp-cappataz\src\main\java\com\cappataz\modelo\Usuario.java"
+	"c:\Users\Lord Vader\VSCode Projects\SP\sp-cappataz\src\main\java\com\cappataz\vista\UsuarioView.java"
+
+
