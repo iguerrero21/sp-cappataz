@@ -1,5 +1,8 @@
 package main.java.com.cappataz.dao;
 
+import main.java.com.cappataz.modelo.Administrador;
+import main.java.com.cappataz.modelo.Operario;
+import main.java.com.cappataz.modelo.Propietario;
 import main.java.com.cappataz.modelo.Usuario;
 import main.java.com.cappataz.utils.DatabaseConnection;
 
@@ -31,17 +34,42 @@ public class UsuarioDAO {
         Usuario usuario = null;
         String query = "SELECT * FROM Usuarios WHERE email = ? AND contrasena = ?";
         try (Connection conn = DatabaseConnection.getConnection();
-                PreparedStatement pstmt = conn.prepareStatement(query)) {
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+            String hashedPassword = hashPassword(contrasena);
             pstmt.setString(1, email);
-            pstmt.setString(2, hashPassword(contrasena));
+            pstmt.setString(2, hashedPassword);
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
-                    usuario = new Usuario(
-                            rs.getInt("idUsuario"),
-                            rs.getString("nombre"),
-                            rs.getString("apellido"),
-                            rs.getString("email"),
-                            rs.getInt("idRol"));
+                    int idRol = rs.getInt("idRol");
+                    switch (idRol) {
+                        case 1:
+                            usuario = new Administrador(
+                                    rs.getInt("idUsuario"),
+                                    rs.getString("nombre"),
+                                    rs.getString("apellido"),
+                                    rs.getString("email"),
+                                    rs.getString("contrasena")
+                            );
+                            break;
+                        case 2:
+                            usuario = new Propietario(
+                                    rs.getInt("idUsuario"),
+                                    rs.getString("nombre"),
+                                    rs.getString("apellido"),
+                                    rs.getString("email"),
+                                    rs.getString("contrasena")
+                            );
+                            break;
+                        case 3:
+                            usuario = new Operario(
+                                    rs.getInt("idUsuario"),
+                                    rs.getString("nombre"),
+                                    rs.getString("apellido"),
+                                    rs.getString("email"),
+                                    rs.getString("contrasena")
+                            );
+                            break;
+                    }
                 }
             }
         } catch (SQLException e) {
