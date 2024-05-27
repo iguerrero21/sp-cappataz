@@ -1,6 +1,7 @@
 package main.java.com.cappataz.vista;
 
 import java.sql.Date;
+import java.util.List;
 import java.util.Scanner;
 
 import main.java.com.cappataz.modelo.Animal;
@@ -67,19 +68,26 @@ public class AnimalView {
         return scanner.nextInt();
     }
 
-    public void displayAnimalDetails(Animal animal) {
+    public void mostrarDetallesAnimal(Animal animal) {
         System.out.println("Animal Details:");
-        System.out.println("ID: " + animal.getId());
-        System.out.println("Caravana: " + animal.getTagId());
-        System.out.println("RFID: " + animal.getTagRFID());
-        System.out.println("Especie: " + animal.getEspecie());
-        System.out.println("Raza: " + animal.getRaza());
-        System.out.println("Fecha de Nacimiento: " + animal.getFechaNac());
-        System.out.println("Sexo: " + animal.getSexo());
-        System.out.println("Castrado: " + animal.getCastrado());
-        System.out.println("Categoría: " + animal.getIdCategoria());
-        System.out.println("Lote N°: " + animal.getIdLote());
-        System.out.println("Propietario: " + animal.getIdPropietario());
+        System.out.printf("%-5s %-10s %-10s %-10s %-10s %-10s %-5s %-10s %-10s %-5s %-10s%n", 
+        "ID", "Caravana", "RFID", "Especie", "Raza", "Nacido", "Sexo", "Castrado", "Categoría", "Lote", "Propietario" );
+        System.out.printf("%-5s %-10s %-10s %-10s %-10s %-10s %-5s %-10s %-10s %-5s %-10s%n",
+                animal.getId(), animal.getTagId(), animal.getTagRFID(), animal.getEspecie(), animal.getRaza(),
+                animal.getFechaNac(), animal.getSexo(), animal.getCastrado(), animal.getIdCategoria(), 
+                animal.getIdLote(), animal.getIdPropietario());
+    }
+
+    public void mostrarDetallesdeTodoslosAnimales(List<Animal> animals) {
+        System.out.println("Animal Details:");
+        System.out.printf("%-5s %-10s %-10s %-10s %-15s %-10s %-5s %-10s %-10s %-5s %-10s%n", 
+        "ID", "Caravana", "RFID", "Especie", "Raza", "Nacido", "Sexo", "Castrado", "Categoría", "Lote", "Propietario" );
+        for (Animal animal : animals) {
+            System.out.printf("%-5s %-10s %-10s %-10s %-15s %-10s %-5s %-10s %-10s %-5s %-10s%n",
+                animal.getId(), animal.getTagId(), animal.getTagRFID(), animal.getEspecie(), animal.getRaza(),
+                animal.getFechaNac(), animal.getSexo(), animal.getCastrado(), animal.getIdCategoria(), 
+                animal.getIdLote(), animal.getIdPropietario());
+        }
     }
 
 }

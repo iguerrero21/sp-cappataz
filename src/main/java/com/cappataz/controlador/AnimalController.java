@@ -30,13 +30,16 @@ public class AnimalController {
         model.setIdLote(view.getIdLote());
         model.setIdPropietario(view.getIdPropietario());
         dao.saveAnimal(model);
-        view.displayAnimalDetails(model);
+        view.mostrarDetallesAnimal(model);
     }
 
     public void displayAllAnimals() {
         List<Animal> animals = dao.getAllAnimals();
-        for (Animal animal : animals) {
-            view.displayAnimalDetails(animal);
-        }
+        view.mostrarDetallesdeTodoslosAnimales(animals);
+    }
+
+    public void mostrarAnimalesPorPropietario(int idPropietario) {
+        List<Animal> animals = dao.getAnimalesPorPropietario(idPropietario);
+        view.mostrarDetallesdeTodoslosAnimales(animals);
     }
 }

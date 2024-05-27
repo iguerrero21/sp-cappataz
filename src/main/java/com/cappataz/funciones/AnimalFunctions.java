@@ -17,4 +17,11 @@ public class AnimalFunctions {
         AnimalController animalController = new AnimalController(new Animal(), animalView);
         animalController.displayAllAnimals();
     }
+
+    public static void mostrarAnimalesPorPorpietario(int idPropietario) {
+        AnimalView animalView = new AnimalView();
+        AnimalController animalController = new AnimalController(new Animal(), animalView);
+        animalController.mostrarAnimalesPorPropietario(idPropietario);
+    }
 }
+

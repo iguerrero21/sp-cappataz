@@ -2,6 +2,12 @@ package main.java.com.cappataz.modelo;
 
 import java.sql.Date;
 
+/**
+ * Clase que representa una propiedad dentro del sistema.
+ * Almacena información sobre la propiedad, como su identificador, nombre,
+ * ubicación, superficie, tipo de propiedad, fecha de registro y el
+ * identificador del propietario.
+ */
 public class Propiedad {
     private int idPropiedad;
     private String nombrePropiedad;
@@ -11,6 +17,18 @@ public class Propiedad {
     private Date fechaRegistro;
     private int idPropietario;
 
+    /**
+     * Constructor para crear una nueva propiedad.
+     *
+     * @param idPropiedad     El identificador único de la propiedad.
+     * @param nombrePropiedad El nombre de la propiedad.
+     * @param ubicacion       La ubicación geográfica de la propiedad.
+     * @param superficie      La superficie total de la propiedad en hectáreas.
+     * @param tipoPropiedad   El tipo de propiedad (e.g., agrícola, ganadera).
+     * @param fechaRegistro   La fecha en que la propiedad fue registrada en el
+     *                        sistema.
+     * @param idPropietario   El identificador del propietario de la propiedad.
+     */
     public Propiedad(int idPropiedad ,String nombrePropiedad, String ubicacion, double superficie, String tipoPropiedad,
             Date fechaRegistro, int idPropietario) {
         this.idPropiedad = idPropiedad;
@@ -22,7 +40,7 @@ public class Propiedad {
         this.idPropietario = idPropietario;
     }
 
-    // Getters
+    // Getters y Setters
     public int getIdPropiedad() {
         return idPropiedad;
     }

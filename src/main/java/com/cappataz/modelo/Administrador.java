@@ -2,7 +2,7 @@ package main.java.com.cappataz.modelo;
 
 import java.sql.Date;
 
-public class Administrador implements Usuario {
+public class Administrador implements IUsuario {
     private int idUsuario;
     private String nombre;
     private String apellido;

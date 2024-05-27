@@ -19,11 +19,11 @@ public class ParcelaController {
 
     public void saveParcela() {
         dao.saveParcela(model);
-        view.displayParcelaDetails(model);
+        view.mostrarDetallesParcelas(model);
     }
 
     public void displayParcelasByPropiedad(int idPropiedad) {
         List<Parcela> parcelas = dao.getParcelasByPropiedad(idPropiedad);
-        view.displayAllParcelas(parcelas);
+        view.mostrarTodasLasParcelas(parcelas);
     }
 }

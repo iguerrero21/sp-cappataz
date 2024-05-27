@@ -1,15 +1,15 @@
 package main.java.com.cappataz.controlador;
 
 import main.java.com.cappataz.dao.UsuarioDAO;
-import main.java.com.cappataz.modelo.Usuario;
+import main.java.com.cappataz.modelo.IUsuario;
 import main.java.com.cappataz.vista.UsuarioView;
 
 public class UsuarioController {
-    private Usuario model;
+    private IUsuario model;
     private UsuarioView view;
     private UsuarioDAO dao;
 
-    public UsuarioController(Usuario model, UsuarioView view) {
+    public UsuarioController(IUsuario model, UsuarioView view) {
         this.model = model;
         this.view = view;
         this.dao = new UsuarioDAO();
@@ -22,17 +22,17 @@ public class UsuarioController {
         model.setContrasena(view.getPasswordForLogin()); // Guardar la contraseña antes de hashear
         model.setIdRol(view.getIdRol());
         dao.saveUsuario(model);
-        view.displayUsuarioDetails(model);
+        view.mostrarDetallesUsuario(model);
     }
 
-    public Usuario login() {
+    public IUsuario login() {
         String email = view.getEmailForLogin();
         String contrasena = view.getPasswordForLogin();
-        Usuario usuario = dao.getUsuarioByEmailAndPassword(email, contrasena);
+        IUsuario usuario = dao.getUsuarioByEmailAndPassword(email, contrasena);
         if (usuario != null) {
-            view.displayLoginSuccess(usuario.getNombre());
+            view.mostrarLogueoExitoso(usuario.getNombre());
         } else {
-            view.displayLoginFailure();
+            view.mostrarErrorLogueo();
         }
         return usuario;
     }

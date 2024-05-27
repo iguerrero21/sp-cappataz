@@ -3,7 +3,7 @@ package main.java.com.cappataz.modelo;
 import java.sql.Date;
 
 
-public class Operario implements Usuario {
+public class Operario implements IUsuario {
     private int idUsuario;
     private String nombre;
     private String apellido;

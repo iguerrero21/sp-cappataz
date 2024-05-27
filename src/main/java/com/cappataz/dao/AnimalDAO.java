@@ -88,4 +88,32 @@ public class AnimalDAO {
         return animal;
     }
 
+    public List<Animal> getAnimalesPorPropietario(int idPropietario) {
+        List<Animal> animals = new ArrayList<>();
+        String query = "SELECT * FROM animales WHERE idPropietario = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+                PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setInt(1, idPropietario);
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                Animal animal = new Animal();
+                animal.setId(rs.getInt("idAnimal"));
+                animal.setTagId(rs.getString("tagIdentificacion"));
+                animal.setTagRFID(rs.getString("tagRFID"));
+                animal.setEspecie(rs.getString("especie"));
+                animal.setFechaNac(rs.getDate("fechaNacimiento"));
+                animal.setSexo(rs.getString("sexo").charAt(0));
+                animal.setRaza(rs.getString("raza"));
+                animal.setCastrado(rs.getBoolean("castrado"));
+                animal.setIdCategoria(rs.getInt("idCategoria"));
+                animal.setIdLote(rs.getInt("idLote"));
+                animal.setIdPropietario(rs.getInt("idPropietario"));
+                animals.add(animal);
+            }
+            rs.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return animals;
+    }
 }

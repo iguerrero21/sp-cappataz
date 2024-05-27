@@ -33,10 +33,10 @@ public class ParcelaView {
         return scanner.next();
     }
 
-    public void displayParcelaDetails(Parcela parcela) {
-        System.out.printf("%-10s %-15s %-20s %-10s %-15s %-15s%n",
-                "ID Parcela", "Nombre", "Ubicación", "Superficie", "Uso", "ID Propiedad");
-        System.out.printf("%-10d %-15s %-20s %-10.2f %-15s %-15d%n",
+    public void mostrarDetallesParcelas(Parcela parcela) {
+        System.out.printf("%-5s %-20s %-20s %-10s %-15s %-15s%n",
+                "ID", "Nombre", "Ubicación", "Superficie", "Uso", "ID Propiedad");
+        System.out.printf("%-5d %-20s %-20s %-10.2f %-15s %-15d%n",
                 parcela.getIdParcela(),
                 parcela.getNombreParcela(),
                 parcela.getUbicacion(),
@@ -45,11 +45,11 @@ public class ParcelaView {
                 parcela.getIdPropiedad());
     }
 
-    public void displayAllParcelas(List<Parcela> parcelas) {
-        System.out.printf("%-10s %-15s %-20s %-10s %-15s %-15s%n",
-                "ID Parcela", "Nombre", "Ubicación", "Superficie", "Uso", "ID Propiedad");
+    public void mostrarTodasLasParcelas(List<Parcela> parcelas) {
+        System.out.printf("%-5s %-20s %-20s %-10s %-15s %-15s%n",
+                "ID", "Nombre", "Ubicación", "Superficie", "Uso", "ID Propiedad");
         for (Parcela parcela : parcelas) {
-            System.out.printf("%-10d %-15s %-20s %-10.2f %-15s %-15d%n",
+            System.out.printf("%-5d %-20s %-20s %-10.2f %-15s %-15d%n",
                     parcela.getIdParcela(),
                     parcela.getNombreParcela(),
                     parcela.getUbicacion(),

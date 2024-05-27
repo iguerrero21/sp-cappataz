@@ -1,18 +1,57 @@
-## Getting Started
+## Seminario de Práctica
+### Universidad Siglo 21
+### 2024
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+# Sistema de Gestión Ganadera "Cappataz"
 
-## Folder Structure
+El presente es un trabajo práctico para la cátedra de Seminario de Práctica, de la licenciatura en Informática.
 
-The workspace contains two folders by default, where:
+El ejercicio consiste en proyectar, a partir de los requerimientos de un cliente, una aplicación en `Java` + `MySQL` utilizando el Proceso Unificado de Desarrollo de Software.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Acerca de la aplicación
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+La arquitectura que se eligió para este proyecto es `Model-View-Controller (MVC)`. El sistema permite la gestión (CRUD) de propiedades, parcelas, animales y lotes de ganado de forma sencilla.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+### Características principales
 
-## Dependency Management
+- **Gestión de propiedades:** Permite agregar, modificar, visualizar y eliminar propiedades.
+- **Gestión de parcelas:** Cada propiedad puede tener múltiples parcelas, las cuales también se pueden gestionar completamente.
+- **Gestión de animales:** Registro y seguimiento de animales, incluyendo detalles como especie, raza, fecha de nacimiento, sexo, entre otros.
+- **Gestión de lotes:** Organización y control de lotes de animales.
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+### Niveles de usuario
+
+- **Administrador:** Control total sobre el sistema. Puede gestionar usuarios, propiedades, parcelas, animales y lotes.
+- **Propietario:** Puede visualizar la evolución de sus propiedades y animales.
+- **Operario:** Puede ingresar, modificar y visualizar datos de animales, parcelas y lotes.
+
+### Seguridad
+
+Cada usuario realiza su login en el sistema con su email y su contraseña. La contraseña se compara con el hash `md5` que se encuentra guardado en la base de datos. El sistema reconoce el rol del usuario, el cual fue asignado previamente por un administrador, y lo dirige al menú correspondiente.
+
+## Tecnologías utilizadas
+
+- **Java:** Lenguaje de programación principal para la lógica de negocio.
+- **MySQL:** Sistema de gestión de bases de datos para almacenar toda la información.
+- **Proceso Unificado de Desarrollo de Software:** Metodología utilizada para la planificación y desarrollo del proyecto.
+
+## Estructura del proyecto
+
+El proyecto sigue el patrón MVC:
+
+- **Modelo (Model):** Representa la estructura de datos y la lógica de negocio.
+- **Vista (View):** Interfaz de usuario que interactúa con el modelo.
+- **Controlador (Controller):** Maneja las entradas del usuario, interactúa con el modelo y selecciona la vista apropiada para mostrar al usuario.
+
+## Instalación y configuración
+
+### Requisitos previos
+
+- Java JDK 11 o superior
+- MySQL 8.0 o superior
+
+### Pasos para la instalación
+
+1. Clona el repositorio:
+   ```sh
+   git clone https://github.com/tuusuario/cappataz.git

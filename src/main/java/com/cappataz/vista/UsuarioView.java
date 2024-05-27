@@ -2,7 +2,7 @@ package main.java.com.cappataz.vista;
 
 import java.util.Scanner;
 
-import main.java.com.cappataz.modelo.Usuario;
+import main.java.com.cappataz.modelo.IUsuario;
 
 public class UsuarioView {
     private Scanner scanner = new Scanner(System.in);
@@ -32,7 +32,7 @@ public class UsuarioView {
         return scanner.nextInt();
     }
 
-    public void displayUsuarioDetails(Usuario usuario) {
+    public void mostrarDetallesUsuario(IUsuario usuario) {
         System.out.println(
                 "Usuario guardado: " + usuario.getNombre() + " " + usuario.getApellido() + " (" + usuario.getEmail() + "), Rol: " + usuario.getIdRol());
     }
@@ -47,11 +47,11 @@ public class UsuarioView {
         return scanner.next();
     }
 
-    public void displayLoginSuccess(String nombre) {
+    public void mostrarLogueoExitoso(String nombre) {
         System.out.println("Bienvenido, " + nombre + "!");
     }
 
-    public void displayLoginFailure() {
+    public void mostrarErrorLogueo() {
         System.out.println("Email o contraseña incorrectos. Inténtelo de nuevo.");
     }
 }
