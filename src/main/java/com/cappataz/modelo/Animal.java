@@ -14,6 +14,8 @@ public class Animal {
     private int idCategoria;
     private int idLote;
     private int idPropietario;
+    private String nombreCategoria;
+    private String nombrePropietario;
 
     public Animal() {
         //constructor
@@ -106,5 +108,21 @@ public class Animal {
     public void setIdPropietario(int idPropietario) {
         this.idPropietario = idPropietario;
     }
+
+    public String getNombreCategoria() {
+        return nombreCategoria;
+    }
+
+    public void setNombreCategoria(String nombreCategoria) {
+        this.nombreCategoria = nombreCategoria;
+    }
+
+    public String getNombrePropietario() {
+        return nombrePropietario;
+    }
+
+    public void setNombrePropietario(String nombrePropietario) {
+        this.nombrePropietario = nombrePropietario;
+    }    
     
 }

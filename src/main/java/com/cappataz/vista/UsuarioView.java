@@ -29,7 +29,7 @@ public class UsuarioView {
 
     public int getIdRol() {
         System.out.print("Ingrese rol del usuario: ");
-        return scanner.nextInt();
+        return obtenerEntradaValida(scanner);
     }
 
     public void mostrarDetallesUsuario(IUsuario usuario) {
@@ -54,4 +54,12 @@ public class UsuarioView {
     public void mostrarErrorLogueo() {
         System.out.println("Email o contraseña incorrectos. Inténtelo de nuevo.");
     }
+
+    private int obtenerEntradaValida(Scanner scanner) {
+        while (!scanner.hasNextInt()) {
+            System.out.println("Entrada no válida. Por favor, ingrese un número.");
+            scanner.next(); // Limpiar la entrada inválida
+        }
+        return scanner.nextInt();
+    }    
 }

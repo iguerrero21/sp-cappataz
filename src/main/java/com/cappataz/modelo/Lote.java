@@ -8,6 +8,11 @@ public class Lote {
     private int idPropietario;
     private int idParcela;
     private Date fechaCreacion;
+    private int cantidadAnimales;
+    private String categoria;
+    private String nombrePropietario;
+    private String nombrePropiedad;
+    private String nombreParcela;    
     
     public Lote(int id, String nombre, int idPropietario, int idParcela, Date fechaCreacion) {
         this.id = id;
@@ -57,5 +62,44 @@ public class Lote {
         this.fechaCreacion = fechaCreacion;
     }
 
+    public int getCantidadAnimales() {
+        return cantidadAnimales;
+    }
+
+    public void setCantidadAnimales(int cantidadAnimales) {
+        this.cantidadAnimales = cantidadAnimales;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public String getNombrePropietario() {
+        return nombrePropietario;
+    }
+
+    public void setNombrePropietario(String nombrePropietario) {
+        this.nombrePropietario = nombrePropietario;
+    }
+
+    public String getNombrePropiedad() {
+        return nombrePropiedad;
+    }
+
+    public void setNombrePropiedad(String nombrePropiedad) {
+        this.nombrePropiedad = nombrePropiedad;
+    }
+
+    public String getNombreParcela() {
+        return nombreParcela;
+    }
+
+    public void setNombreParcela(String nombreParcela) {
+        this.nombreParcela = nombreParcela;
+    }
     
 }

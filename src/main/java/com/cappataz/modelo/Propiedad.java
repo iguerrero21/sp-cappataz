@@ -29,7 +29,7 @@ public class Propiedad {
      *                        sistema.
      * @param idPropietario   El identificador del propietario de la propiedad.
      */
-    public Propiedad(int idPropiedad ,String nombrePropiedad, String ubicacion, double superficie, String tipoPropiedad,
+    public Propiedad(int idPropiedad, String nombrePropiedad, String ubicacion, double superficie, String tipoPropiedad,
             Date fechaRegistro, int idPropietario) {
         this.idPropiedad = idPropiedad;
         this.nombrePropiedad = nombrePropiedad;

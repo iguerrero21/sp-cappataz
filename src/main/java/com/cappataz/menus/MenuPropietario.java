@@ -2,6 +2,7 @@ package main.java.com.cappataz.menus;
 
 import main.java.com.cappataz.funciones.AnimalFunctions;
 import main.java.com.cappataz.modelo.Propietario;
+import main.java.com.cappataz.util.InputValidator;
 
 import java.util.Scanner;
 
@@ -21,7 +22,7 @@ public class MenuPropietario {
                 System.out.println("1. Mostrar todos mis animales");
                 System.out.println("2. Salir");
                 System.out.print("Seleccione una opción: ");
-                int choice = scanner.nextInt();
+                int choice = InputValidator.obtenerEntradaValida(scanner);
 
                 switch (choice) {
                     case 1:

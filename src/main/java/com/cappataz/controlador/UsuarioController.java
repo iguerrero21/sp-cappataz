@@ -26,13 +26,19 @@ public class UsuarioController {
     }
 
     public IUsuario login() {
-        String email = view.getEmailForLogin();
-        String contrasena = view.getPasswordForLogin();
-        IUsuario usuario = dao.getUsuarioByEmailAndPassword(email, contrasena);
-        if (usuario != null) {
-            view.mostrarLogueoExitoso(usuario.getNombre());
-        } else {
-            view.mostrarErrorLogueo();
+        String email;
+        String contrasena;
+        IUsuario usuario = null;
+
+        while (usuario == null) {
+            email = view.getEmailForLogin();
+            contrasena = view.getPasswordForLogin();
+            usuario = dao.getUsuarioByEmailAndPassword(email, contrasena);
+            if (usuario != null) {
+                view.mostrarLogueoExitoso(usuario.getNombre());
+            } else {
+                view.mostrarErrorLogueo();
+            }
         }
         return usuario;
     }

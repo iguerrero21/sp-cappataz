@@ -18,6 +18,13 @@ public class DatabaseConnection {
                     throw new SQLException("Database credentials are not set in environment variables.");
                 }
 
+                // // Añadir configuración para UTF-8 en la URL de conexión
+                // if (url != null && !url.contains("useUnicode")) {
+                //     url += "?useUnicode=true&characterEncoding=utf8mb4";
+                // } else {
+                //     url += "&useUnicode=true&characterEncoding=utf8mb4";
+                // }
+
                 connection = DriverManager.getConnection(url, user, password);
             }
         } catch (SQLException ex) {

@@ -3,7 +3,9 @@ package main.java.com.cappataz.menus;
 import main.java.com.cappataz.funciones.AnimalFunctions;
 import main.java.com.cappataz.funciones.UsuarioFunctions;
 import main.java.com.cappataz.funciones.PropiedadFunctions;
+import main.java.com.cappataz.funciones.LotesFunctions;
 import main.java.com.cappataz.modelo.Administrador;
+import main.java.com.cappataz.util.InputValidator;
 
 import java.util.Scanner;
 
@@ -25,7 +27,7 @@ public class MenuAdministrador {
                 System.out.println("3. Gestionar animales");
                 System.out.println("4. Salir");
                 System.out.print("Seleccione una opción: ");
-                int choice = scanner.nextInt();
+                int choice = InputValidator.obtenerEntradaValida(scanner);
 
                 switch (choice) {
                     case 1:
@@ -83,7 +85,7 @@ public class MenuAdministrador {
             System.out.println("2. Ver propiedades");
             System.out.println("3. Volver al menú inicial");
             System.out.print("Seleccione una opción: ");
-            int choice = scanner.nextInt();
+            int choice = InputValidator.obtenerEntradaValida(scanner);
 
             switch (choice) {
                 case 1:
@@ -107,23 +109,23 @@ public class MenuAdministrador {
         while (!back) {
             System.out.println("\nGestionar Animales:");
             System.out.println("1. Registrar nuevo animal");
-            System.out.println("2. Mostrar todos los animales");
+            System.out.println("2. Mostrar lotes");
             System.out.println("3. Volver al menú inicial");
             System.out.print("Seleccione una opción: ");
-            int choice = scanner.nextInt();
+            int choice = InputValidator.obtenerEntradaValida(scanner);
 
             switch (choice) {
                 case 1:
                     AnimalFunctions.registrarAnimal();
                     break;
                 case 2:
-                    AnimalFunctions.mostrarAnimales();
+                    LotesFunctions.mostrarLotes();
                     break;
                 case 3:
                     back = true;
                     break;
                 default:
-                    System.out.println("Opción no válida. Por favor, intente de nuevo.");
+                    System.out.println("Opción fuera de rango. Por favor, intente de nuevo.");
             }
         }
     }

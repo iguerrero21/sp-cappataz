@@ -96,7 +96,7 @@ public class UsuarioDAO {
 
     public List<Propietario> getPropietarios() {
         List<Propietario> propietarios = new ArrayList<>();
-        String query = "SELECT idUsuario, nombre, apellido, email, contrasena FROM Usuarios WHERE idRol = 2";
+        String query = "SELECT DISTINCT idUsuario, nombre, apellido, email, contrasena FROM Usuarios WHERE idRol = 2";
         try (Connection conn = DatabaseConnection.getConnection();
                 PreparedStatement pstmt = conn.prepareStatement(query);
                 ResultSet rs = pstmt.executeQuery()) {
@@ -114,4 +114,27 @@ public class UsuarioDAO {
         }
         return propietarios;
     }
+
+    public Propietario getPropietarioById(int idPropietario) {
+        Propietario propietario = null;
+        String query = "SELECT * FROM Usuarios WHERE idUsuario = ? AND idRol = 2";
+        try (Connection conn = DatabaseConnection.getConnection();
+                PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setInt(1, idPropietario);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    propietario = new Propietario(
+                            rs.getInt("idUsuario"),
+                            rs.getString("nombre"),
+                            rs.getString("apellido"),
+                            rs.getString("email"),
+                            rs.getString("contrasena"));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return propietario;
+    }
+
 }

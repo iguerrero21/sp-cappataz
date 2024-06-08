@@ -116,4 +116,40 @@ public class AnimalDAO {
         }
         return animals;
     }
+
+    public List<Animal> getAnimalesPorLote(int idLote) {
+        List<Animal> animals = new ArrayList<>();
+        String query = "SELECT Animales.*, Categorias.nombreCategoria AS nombreCategoria, CONCAT(usuarios.nombre, ' ', usuarios.apellido) AS nombrePropietario "
+                +
+                "FROM Animales " +
+                "LEFT JOIN Categorias ON Animales.idCategoria = Categorias.idCategoria " +
+                "LEFT JOIN Usuarios ON Animales.idPropietario = Usuarios.idUsuario " +
+                "WHERE Animales.idLote = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+                PreparedStatement pstmt = conn.prepareStatement(query)) {
+
+            pstmt.setInt(1, idLote);
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                Animal animal = new Animal();
+                animal.setId(rs.getInt("idAnimal"));
+                animal.setTagId(rs.getString("tagIdentificacion"));
+                animal.setTagRFID(rs.getString("tagRFID"));
+                animal.setEspecie(rs.getString("especie"));
+                animal.setRaza(rs.getString("raza"));
+                animal.setFechaNac(rs.getDate("fechaNacimiento"));
+                animal.setSexo(rs.getString("sexo").charAt(0));
+                animal.setCastrado(rs.getBoolean("castrado"));
+                animal.setIdCategoria(rs.getInt("idCategoria"));
+                animal.setIdLote(rs.getInt("idLote"));
+                animal.setIdPropietario(rs.getInt("idPropietario"));
+                animal.setNombreCategoria(rs.getString("nombreCategoria"));
+                animal.setNombrePropietario(rs.getString("nombrePropietario"));
+                animals.add(animal);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return animals;
+    }
 }
