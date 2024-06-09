@@ -9,8 +9,6 @@ import main.java.com.cappataz.vista.PropiedadView;
 
 public class PropiedadFunctions {
 
-    private static final int PAGE_SIZE = 10;
-
     public static void registrarPropiedad() {
         PropiedadView propiedadView = new PropiedadView();
         Propiedad propiedad = new Propiedad(

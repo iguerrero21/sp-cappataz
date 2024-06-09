@@ -14,4 +14,40 @@ public class LotesFunctions {
         int idLote = loteView.seleccionarLote();
         loteController.mostrarAnimalesPorLote(idLote);
     }
+
+    public static void registrarLote() {
+        LoteView loteView = new LoteView();
+        LoteController loteController = new LoteController(null, loteView);
+        loteController.registrarLote();
+    }
+
+    public static void modificarLote() {
+        LoteView loteView = new LoteView();
+        LoteController loteController = new LoteController(null, loteView);
+        loteController.actualizarLote();
+    }
+
+    public static void eliminarLote() {
+        LoteView loteView = new LoteView();
+        LoteController loteController = new LoteController(null, loteView);
+        loteController.eliminarLote();
+    }
+
+    public static void mostrarLotePorId() {
+        LoteView loteView = new LoteView();
+        LoteController loteController = new LoteController(null, loteView);
+        loteController.seleccionarLote();
+    }
+
+    public static void registrarEventoSanitarioLote() {
+        LoteView loteView = new LoteView();
+        LoteController loteController = new LoteController(null, loteView);
+        loteController.registrarEventoSanitarioLote();
+    }
+
+    public static void mostrarEventosSanitariosLote() {
+        LoteView loteView = new LoteView();
+        LoteController loteController = new LoteController(null, loteView);
+        loteController.mostrarEventoSanitarioLote();
+    }
 }

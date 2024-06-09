@@ -77,4 +77,8 @@ public class Administrador implements IUsuario {
     public Date getFechaActualizacion() {
         return fechaActualizacion;
     }
+
+    public String getRol() {
+        return "Administrador";
+    }
 }

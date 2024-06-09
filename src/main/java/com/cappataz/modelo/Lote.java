@@ -12,8 +12,11 @@ public class Lote {
     private String categoria;
     private String nombrePropietario;
     private String nombrePropiedad;
-    private String nombreParcela;    
-    
+    private String nombreParcela;   
+        
+    public Lote() {
+    }
+
     public Lote(int id, String nombre, int idPropietario, int idParcela, Date fechaCreacion) {
         this.id = id;
         this.nombre = nombre;

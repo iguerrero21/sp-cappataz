@@ -3,7 +3,6 @@ package main.java.com.cappataz.menus;
 import main.java.com.cappataz.funciones.AnimalFunctions;
 import main.java.com.cappataz.modelo.Propietario;
 import main.java.com.cappataz.util.InputValidator;
-
 import java.util.Scanner;
 
 public class MenuPropietario {
@@ -26,7 +25,7 @@ public class MenuPropietario {
 
                 switch (choice) {
                     case 1:
-                        AnimalFunctions.mostrarAnimalesPorPorpietario(propietario.getIdUsuario());
+                        AnimalFunctions.mostrarAnimalesPorPropietario(propietario.getIdUsuario());
                         break;
                     case 2:
                         exit = true;

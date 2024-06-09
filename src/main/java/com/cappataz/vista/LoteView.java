@@ -40,22 +40,33 @@ public class LoteView {
         System.out.printf("%-20s: %s%n", "Fecha de Creación", lote.getFechaCreacion());
     }
 
-    public String getNombreLote() {
+    public Lote obtenerDatosLote() {
+        Lote lote = new Lote();
         System.out.print("Ingrese el nombre del lote: ");
-        return scanner.next();
-    }
-
-    public int getIdPropietario() {
+        lote.setNombre(scanner.next());
         System.out.print("Ingrese el ID del propietario: ");
-        return scanner.nextInt();
+        lote.setIdPropietario(scanner.nextInt());
+        System.out.print("Ingrese el ID de la parcela: ");
+        lote.setIdParcela(scanner.nextInt());
+        return lote;
     }
 
-    public int getIdParcela() {
-        System.out.print("Ingrese el ID de la parcela: ");
+    public int getIdLote() {
+        System.out.print("Ingrese el ID del lote: ");
         return scanner.nextInt();
     }
 
     public void mostrarMensaje(String mensaje) {
         System.out.println(mensaje);
+    }
+
+    public void mostrarRegistrarEventoSanitarioLote(Lote lote) {
+        System.out.printf("Registrar evento sanitario para el lote: %s (ID: %d)%n", lote.getNombre(), lote.getId());
+        // Aquí puedes mostrar más información sobre el lote si lo deseas
+    }
+
+    public void mostrarEventoSanitarioLote(Lote lote) {
+        System.out.printf("Eventos sanitarios para el lote: %s (ID: %d)%n", lote.getNombre(), lote.getId());
+        // Aquí puedes mostrar más información sobre el lote si lo deseas
     }
 }

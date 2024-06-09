@@ -36,4 +36,6 @@ public interface IUsuario {
     int getIdRol();
 
     void setIdRol(int idRol);
+
+    String getRol();
 }

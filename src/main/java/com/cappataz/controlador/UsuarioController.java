@@ -4,6 +4,8 @@ import main.java.com.cappataz.dao.UsuarioDAO;
 import main.java.com.cappataz.modelo.IUsuario;
 import main.java.com.cappataz.vista.UsuarioView;
 
+import java.util.List;
+
 public class UsuarioController {
     private IUsuario model;
     private UsuarioView view;
@@ -26,20 +28,35 @@ public class UsuarioController {
     }
 
     public IUsuario login() {
-        String email;
-        String contrasena;
-        IUsuario usuario = null;
-
-        while (usuario == null) {
-            email = view.getEmailForLogin();
-            contrasena = view.getPasswordForLogin();
-            usuario = dao.getUsuarioByEmailAndPassword(email, contrasena);
-            if (usuario != null) {
-                view.mostrarLogueoExitoso(usuario.getNombre());
-            } else {
-                view.mostrarErrorLogueo();
-            }
+        String email = view.getEmailForLogin();
+        String contrasena = view.getPasswordForLogin();
+        IUsuario usuario = dao.getUsuarioByEmailAndPassword(email, contrasena);
+        if (usuario != null) {
+            view.mostrarLogueoExitoso(usuario.getNombre());
+        } else {
+            view.mostrarErrorLogueo();
         }
         return usuario;
+    }
+
+    public void displayAllUsuarios() {
+        List<IUsuario> usuarios = dao.getAllUsuarios();
+        view.mostrarTodosLosUsuarios(usuarios);
+    }
+
+    public void displayUsuariosByRole(int roleId) {
+        List<IUsuario> usuarios;
+        if (roleId == 0) {
+            usuarios = dao.getAllUsuarios();
+        } else {
+            usuarios = dao.getUsuariosByRole(roleId);
+        }
+        view.mostrarTodosLosUsuarios(usuarios);
+    }
+
+    public void deleteUsuario() {
+        int idUsuario = view.getIdUsuario();
+        dao.deleteUsuario(idUsuario);
+        view.mostrarMensaje("Usuario eliminado con éxito.");
     }
 }

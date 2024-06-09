@@ -1,4 +1,4 @@
-## Seminario de Práctica
+## Seminario de Práctica Informática
 ### Universidad Siglo 21
 ### 2024
 
@@ -55,3 +55,16 @@ El proyecto sigue el patrón MVC:
 1. Clona el repositorio:
    ```sh
    git clone https://github.com/tuusuario/cappataz.git
+
+2. Instalar la base de datos con el script `cappataz_db.sql` con MySQL Workbench.
+
+
+## Utilización
+
+Para ingresar al sistema, se debe tener usuario y contraseña:
+
+- Juan Pérez es ADMINSITRADOR. Usuario: juan.perez@example.com
+- Carlos Fernández es PROPIETARIO. Usuario carlos.fernandez@example.com
+- Marian Gómez es OPERARIO. Usuario mariana.gomez@example.com
+
+En todos los casos, la contraseña es 1234.

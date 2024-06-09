@@ -25,7 +25,9 @@ public class MenuAdministrador {
                 System.out.println("1. Gestionar usuarios");
                 System.out.println("2. Gestionar propiedades");
                 System.out.println("3. Gestionar animales");
-                System.out.println("4. Salir");
+                System.out.println("4. Gestionar lotes");
+                System.out.println("5. Registrar evento sanitario");
+                System.out.println("6. Salir");
                 System.out.print("Seleccione una opción: ");
                 int choice = InputValidator.obtenerEntradaValida(scanner);
 
@@ -40,6 +42,12 @@ public class MenuAdministrador {
                         gestionarAnimales(scanner);
                         break;
                     case 4:
+                        gestionarLotes(scanner);
+                        break;
+                    case 5:
+                        registrarEventoSanitario(scanner);
+                        break;
+                    case 6:
                         exit = true;
                         break;
                     default:
@@ -56,9 +64,10 @@ public class MenuAdministrador {
             System.out.println("\nGestionar Usuarios:");
             System.out.println("1. Registrar nuevo usuario");
             System.out.println("2. Mostrar todos los usuarios");
-            System.out.println("3. Volver al menú inicial");
+            System.out.println("3. Eliminar usuario");
+            System.out.println("4. Volver al menú inicial");
             System.out.print("Seleccione una opción: ");
-            int choice = scanner.nextInt();
+            int choice = InputValidator.obtenerEntradaValida(scanner);
 
             switch (choice) {
                 case 1:
@@ -68,6 +77,9 @@ public class MenuAdministrador {
                     UsuarioFunctions.mostrarUsuarios();
                     break;
                 case 3:
+                    UsuarioFunctions.eliminarUsuario();
+                    break;
+                case 4:
                     back = true;
                     break;
                 default:
@@ -125,7 +137,65 @@ public class MenuAdministrador {
                     back = true;
                     break;
                 default:
-                    System.out.println("Opción fuera de rango. Por favor, intente de nuevo.");
+                    System.out.println("Opción no válida. Por favor, intente de nuevo.");
+            }
+        }
+    }
+
+    private void gestionarLotes(Scanner scanner) {
+        boolean back = false;
+
+        while (!back) {
+            System.out.println("\nGestionar Lotes:");
+            System.out.println("1. Registrar nuevo lote");
+            System.out.println("2. Modificar lote");
+            System.out.println("3. Eliminar lote");
+            System.out.println("4. Volver al menú inicial");
+            System.out.print("Seleccione una opción: ");
+            int choice = InputValidator.obtenerEntradaValida(scanner);
+
+            switch (choice) {
+                case 1:
+                    LotesFunctions.registrarLote();
+                    break;
+                case 2:
+                    LotesFunctions.modificarLote();
+                    break;
+                case 3:
+                    LotesFunctions.eliminarLote();
+                    break;
+                case 4:
+                    back = true;
+                    break;
+                default:
+                    System.out.println("Opción no válida. Por favor, intente de nuevo.");
+            }
+        }
+    }
+
+    private void registrarEventoSanitario(Scanner scanner) {
+        boolean back = false;
+
+        while (!back) {
+            System.out.println("\nRegistrar Evento Sanitario:");
+            System.out.println("1. Evento sanitario por lote");
+            System.out.println("2. Evento sanitario individual");
+            System.out.println("3. Volver al menú inicial");
+            System.out.print("Seleccione una opción: ");
+            int choice = InputValidator.obtenerEntradaValida(scanner);
+
+            switch (choice) {
+                case 1:
+                    LotesFunctions.registrarEventoSanitarioLote();
+                    break;
+                case 2:
+                    AnimalFunctions.registrarEventoSanitarioAnimal();
+                    break;
+                case 3:
+                    back = true;
+                    break;
+                default:
+                    System.out.println("Opción no válida. Por favor, intente de nuevo.");
             }
         }
     }

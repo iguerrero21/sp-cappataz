@@ -108,4 +108,9 @@ public class Propietario implements IUsuario {
     public void setIdRol(int idRol) {
         this.idRol = idRol;
     }
+
+    @Override
+    public String getRol() {
+        return "Propietario";
+    }
 }

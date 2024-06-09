@@ -13,79 +13,51 @@ public class AnimalView {
         this.scanner = new Scanner(System.in);
     }
 
-    public int getId() {
+    public Animal cargarAnimal() {
+        Animal animal = new Animal();
         System.out.print("Ingrese ID del animal: ");
-        return scanner.nextInt();
-    }
-
-    public String getTagId() {
+        animal.setId(scanner.nextInt());
         System.out.print("Ingrese Tag ID del animal: ");
-        return scanner.next();
-    }
-
-    public String getTagRFID() {
+        animal.setTagId(scanner.next());
         System.out.print("Ingrese Tag RFID del animal: ");
-        return scanner.next();
-    }
-
-    public String getEspecie() {
+        animal.setTagRFID(scanner.next());
         System.out.print("Ingrese especie del animal: ");
-        return scanner.next();
-    }
-
-    public String getRaza() {
+        animal.setEspecie(scanner.next());
         System.out.print("Ingrese raza del animal: ");
-        return scanner.next();
-    }
-
-    public Date getFechaNac() {
+        animal.setRaza(scanner.next());
         System.out.print("Ingrese fecha de nacimiento del animal (YYYY-MM-DD): ");
-        return Date.valueOf(scanner.next());
-    }
-
-    public Character getSexo() {
+        animal.setFechaNac(Date.valueOf(scanner.next()));
         System.out.print("Ingrese sexo del animal (M/F): ");
-        return scanner.next().charAt(0);
-    }
-
-    public Boolean getCastrado() {
+        animal.setSexo(scanner.next().charAt(0));
         System.out.print("Ingrese si el animal está castrado (true/false): ");
-        return scanner.nextBoolean();
-    }
-
-    public int getIdCategoria() {
+        animal.setCastrado(scanner.nextBoolean());
         System.out.print("Ingrese ID de categoría del animal: ");
-        return scanner.nextInt();
-    }
-
-    public int getIdLote() {
+        animal.setIdCategoria(scanner.nextInt());
         System.out.print("Ingrese ID de lote del animal: ");
-        return scanner.nextInt();
-    }
-
-    public int getIdPropietario() {
+        animal.setIdLote(scanner.nextInt());
         System.out.print("Ingrese ID del propietario del animal: ");
-        return scanner.nextInt();
+        animal.setIdPropietario(scanner.nextInt());
+        return animal;
     }
 
     public void mostrarDetallesAnimal(Animal animal) {
-        System.out.println("Animal Details:");
-        System.out.printf("%-5s %-10s %-10s %-10s %-10s %-10s %-5s %-10s %-10s %-5s %-10s%n", 
-        "ID", "Caravana", "RFID", "Especie", "Raza", "Nacido", "Sexo", "Castrado", "Categoría", "Lote", "Propietario" );
-        System.out.printf("%-5s %-10s %-10s %-10s %-10s %-10s %-5s %-10s %-10s %-5s %-10s%n",
+        System.out.println("Detalles del Animal:");
+        System.out.printf("%-5s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s%n",
+                "ID", "Caravana", "RFID", "Especie", "Raza", "Nacido", "Categoría", "Lote", "Propietario");
+        System.out.printf("%-5s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s%n",
                 animal.getId(), animal.getTagId(), animal.getTagRFID(), animal.getEspecie(), animal.getRaza(),
-                animal.getFechaNac(), animal.getSexo(), animal.getCastrado(), animal.getIdCategoria(), 
-                animal.getIdLote(), animal.getIdPropietario());
+                animal.getFechaNac(), animal.getIdCategoria(), animal.getIdLote(), animal.getIdPropietario());
     }
 
     public void mostrarDetallesdeTodoslosAnimales(List<Animal> animals) {
-        System.out.println("Detalles de los Animales:");
-        System.out.printf("%-5s %-10s %-10s %-10s %-15s %-10s %-15s %-10s%n",
-                "ID", "Caravana", "RFID", "Especie", "Raza", "Nacido", "Categoría", "Propietario");
+        System.out.println("Detalles de Todos los Animales:");
+        System.out.printf("%-5s %-10s %-10s %-10s %-15s %-10s %-10s %-10s %-15s%n",
+                "ID", "Caravana", "RFID", "Especie", "Raza", "Nacido", "Categoría", "Lote", "Propietario");
         for (Animal animal : animals) {
-            System.out.printf("%-5s %-10s %-10s %-10s %-15s %-10s %-15s %-10s%n",
-                    animal.getId(), animal.getTagId(), animal.getTagRFID(), animal.getEspecie(),
-                    animal.getRaza(), animal.getFechaNac(), animal.getNombreCategoria(), animal.getNombrePropietario());
+            System.out.printf("%-5s %-10s %-10s %-10s %-15s %-10s %-10s %-10s %-15s%n",
+                    animal.getId(), animal.getTagId(), animal.getTagRFID(), animal.getEspecie(), animal.getRaza(),
+                    animal.getFechaNac(), animal.getIdCategoria(), animal.getIdLote(), animal.getIdPropietario());
         }
     }
 }
+
