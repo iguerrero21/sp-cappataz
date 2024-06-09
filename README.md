@@ -51,14 +51,16 @@ El proyecto sigue el patrón MVC:
 
 - Java JDK 11 o superior
 - MySQL 8.0 o superior
+- JUnit 4.13.2
+- Hamcrest-Core 1.3
 
 ### Pasos para la instalación
 
 1. Clona el repositorio:
    ```sh
-   git clone https://github.com/tuusuario/cappataz.git
+   git clone https://github.com/iguerrero21/sp-cappataz.git
 
-2. Instalar la base de datos con el script `cappataz_db.sql` con MySQL Workbench.
+2. Instalar la base de datos con el script `cappataz_db.sql` en MySQL Workbench. La misma se encuentra en la raíz del proyecto.
 
 
 ## Utilización

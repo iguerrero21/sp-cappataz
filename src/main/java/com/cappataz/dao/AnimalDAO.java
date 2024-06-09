@@ -12,7 +12,17 @@ import main.java.com.cappataz.modelo.Animal;
 import main.java.com.cappataz.util.DatabaseConnection;
 
 public class AnimalDAO {
+    /**
+     * Guarda un nuevo animal en la base de datos.
+     *
+     * @param animal El objeto Animal a guardar.
+     * @throws IllegalArgumentException si el animal o alguno de sus campos
+     *                                  obligatorios es nulo.
+     */
     public void saveAnimal(Animal animal) {
+        if (animal == null || animal.getTagId() == null || animal.getTagRFID() == null) {
+            throw new IllegalArgumentException("El animal y sus campos no pueden ser nulos");
+        }
         String query = "INSERT INTO animales (idAnimal, tagIdentificacion, tagRFID, especie, raza, fechaNacimiento, sexo, castrado, idCategoria, idLote, idPropietario) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection conn = DatabaseConnection.getConnection();
                 PreparedStatement pstmt = conn.prepareStatement(query)) {

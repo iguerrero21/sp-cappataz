@@ -18,7 +18,23 @@ public class Animal {
     private String nombrePropietario;
 
     public Animal() {
-        //constructor
+        //constructor vació
+    }
+
+    // Constructor completo
+    public Animal(int id, String tagId, String tagRFID, String especie, String raza, Date fechaNac, Character sexo,
+            boolean castrado, int idCategoria, int idLote, int idPropietario) {
+        this.id = id;
+        this.tagId = tagId;
+        this.tagRFID = tagRFID;
+        this.especie = especie;
+        this.raza = raza;
+        this.fechaNac = fechaNac;
+        this.sexo = sexo;
+        this.castrado = castrado;
+        this.idCategoria = idCategoria;
+        this.idLote = idLote;
+        this.idPropietario = idPropietario;
     }
 
     public int getId() {
