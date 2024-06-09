@@ -27,6 +27,7 @@ public class EventoSanitarioDAO {
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Error al guardar el evento sanitario");
         }
     }
 
@@ -51,6 +52,7 @@ public class EventoSanitarioDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Error al obtener los eventos sanitarios");
         }
         return eventos;
     }
@@ -78,6 +80,7 @@ public class EventoSanitarioDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Error al obtener los eventos sanitarios");
         }
         return eventos;
     }
@@ -105,6 +108,7 @@ public class EventoSanitarioDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Error al obtener los eventos sanitarios");
         }
         return eventos;
     }
@@ -131,6 +135,7 @@ public class EventoSanitarioDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Error al obtener el evento sanitario");
         }
         return evento;
     }
@@ -151,6 +156,7 @@ public class EventoSanitarioDAO {
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Error al actualizar el evento sanitario");
         }
     }
 
@@ -162,6 +168,7 @@ public class EventoSanitarioDAO {
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Error al eliminar el evento sanitario");
         }
     }
 }

@@ -1,13 +1,11 @@
 package main.java.com.cappataz.dao;
 
-import main.java.com.cappataz.modelo.EventoSanitario;
 import main.java.com.cappataz.modelo.EventoSalud;
 import main.java.com.cappataz.util.DatabaseConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.List;
 
 public class EventoSaludDAO {
     public void saveEventoSalud(EventoSalud evento) {

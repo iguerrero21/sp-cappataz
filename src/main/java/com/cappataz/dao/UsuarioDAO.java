@@ -28,6 +28,7 @@ public class UsuarioDAO {
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Error al guardar el usuario");
         }
     }
 
@@ -72,6 +73,7 @@ public class UsuarioDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Error al obtener el usuario");            
         }
         return usuario;
     }
@@ -117,6 +119,7 @@ public class UsuarioDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Error al obtener los usuarios");
         }
         return usuarios;
     }
@@ -164,6 +167,7 @@ public class UsuarioDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Error al obtener los usuarios");
         }
         return usuarios;
     }
@@ -185,6 +189,7 @@ public class UsuarioDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Error al obtener los propietarios");
         }
         return propietarios;
     }
@@ -207,6 +212,7 @@ public class UsuarioDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Error al obtener el propietario");
         }
         return propietario;
     }
@@ -229,6 +235,7 @@ public class UsuarioDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Error al obtener el operario");
         }
         return operario;
     }
@@ -241,6 +248,7 @@ public class UsuarioDAO {
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Error al eliminar el usuario");
         }
     }
 }

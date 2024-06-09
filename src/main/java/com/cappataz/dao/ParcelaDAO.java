@@ -24,6 +24,7 @@ public class ParcelaDAO {
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Error al guardar la parcela");
         }
     }
 
@@ -47,6 +48,7 @@ public class ParcelaDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Error al obtener las parcelas de la propiedad");
         }
         return parcelas;
     }
@@ -70,6 +72,7 @@ public class ParcelaDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Error al obtener la parcela por ID");
         }
         return parcela;
     }

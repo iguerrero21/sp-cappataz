@@ -27,12 +27,14 @@ La arquitectura que se eligió para este proyecto es `Model-View-Controller (MVC
 
 ### Seguridad
 
-Cada usuario realiza su login en el sistema con su email y su contraseña. La contraseña se compara con el hash `md5` que se encuentra guardado en la base de datos. El sistema reconoce el rol del usuario, el cual fue asignado previamente por un administrador, y lo dirige al menú correspondiente.
+Cada usuario realiza su login en el sistema con su email y su contraseña. La contraseña se compara con el hash `SHA-256` que se encuentra guardado en la base de datos. El sistema reconoce el rol del usuario, el cual fue asignado previamente por un administrador, y lo dirige al menú correspondiente.
 
 ## Tecnologías utilizadas
 
 - **Java:** Lenguaje de programación principal para la lógica de negocio.
 - **MySQL:** Sistema de gestión de bases de datos para almacenar toda la información.
+- **JDBC** para conectar con la base de datos.
+- **JUnit** y **Hamcrest** para pruebas unitarias.
 - **Proceso Unificado de Desarrollo de Software:** Metodología utilizada para la planificación y desarrollo del proyecto.
 
 ## Estructura del proyecto

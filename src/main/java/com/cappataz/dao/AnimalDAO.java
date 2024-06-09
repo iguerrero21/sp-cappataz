@@ -30,6 +30,7 @@ public class AnimalDAO {
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            System.err.println("Error al guardar el animal: " + e.getMessage());
         }
     }
 
@@ -56,6 +57,7 @@ public class AnimalDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            System.err.println("Error al obtener los animales: " + e.getMessage());
         }
         return animals;
     }
@@ -84,6 +86,7 @@ public class AnimalDAO {
             rs.close();
             } catch (SQLException e) {
             e.printStackTrace();
+            System.err.println("Error al obtener el animal: " + e.getMessage());
         }
         return animal;
     }
@@ -113,6 +116,7 @@ public class AnimalDAO {
             rs.close();
         } catch (SQLException e) {
             e.printStackTrace();
+            System.err.println("Error al obtener los animales: " + e.getMessage());
         }
         return animals;
     }
@@ -149,6 +153,7 @@ public class AnimalDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            System.err.println("Error en la carga: " + e.getMessage());
         }
         return animals;
     }

@@ -24,6 +24,7 @@ public class PropiedadDAO {
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Error al guardar la propiedad");
         }
     }
 
@@ -46,6 +47,7 @@ public class PropiedadDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Error al obtener las propiedades");
         }
         return propiedades;
     }
@@ -70,6 +72,7 @@ public class PropiedadDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Error al obtener la propiedad");
         }
         return propiedad;
     }
@@ -96,6 +99,7 @@ public class PropiedadDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Error al obtener las propiedades paginadas");
         }
         return propiedades;
     }
@@ -121,6 +125,7 @@ public class PropiedadDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Error al obtener las propiedades del propietario");
         }
         return propiedades;
     }
@@ -138,6 +143,7 @@ public class PropiedadDAO {
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Error al actualizar la propiedad");
         }
     }
 }

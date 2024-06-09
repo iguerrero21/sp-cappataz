@@ -24,6 +24,7 @@ public class LoteDAO {
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Error al guardar el lote");
         }
     }
 
@@ -59,6 +60,7 @@ public class LoteDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Error al obtener los lotes");
         }
         return lotes;
     }
@@ -96,6 +98,7 @@ public class LoteDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Error al obtener el lote");
         }
         return lote;
     }
@@ -111,6 +114,7 @@ public class LoteDAO {
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Error al actualizar el lote");
         }
     }
 
@@ -122,6 +126,7 @@ public class LoteDAO {
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException("Error al eliminar el lote");
         }
     }
 }
