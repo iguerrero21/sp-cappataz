@@ -44,6 +44,11 @@ El proyecto sigue el patrón MVC:
 - **Modelo (Model):** Representa la estructura de datos y la lógica de negocio.
 - **Vista (View):** Interfaz de usuario que interactúa con el modelo.
 - **Controlador (Controller):** Maneja las entradas del usuario, interactúa con el modelo y selecciona la vista apropiada para mostrar al usuario.
+- Las consultas a la base de datos se ubican en la carpeta **/dao**.
+- Parte de la lógica fue cargada en la carpeta **/funciones**.
+- Los menú se encuentran en la carpeta **/menu**.
+- Las utilidades, como la conexión a la base de datos, o la aplicaión para hashear las contraseñas, se ubican en la carpeta **/util**.
+
 
 ## Instalación y configuración
 
@@ -53,6 +58,8 @@ El proyecto sigue el patrón MVC:
 - MySQL 8.0 o superior
 - JUnit 4.13.2
 - Hamcrest-Core 1.3
+
+Las librerías ya se encuentran preinstaladas en la carpeta **/lib**, pero tal vez deban ser autorizadas en el **classpath** de sistema.
 
 ### Pasos para la instalación
 

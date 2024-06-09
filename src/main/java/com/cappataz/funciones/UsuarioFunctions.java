@@ -2,7 +2,6 @@ package main.java.com.cappataz.funciones;
 
 import main.java.com.cappataz.controlador.UsuarioController;
 import main.java.com.cappataz.vista.UsuarioView;
-import main.java.com.cappataz.util.ConsoleUtils;
 import main.java.com.cappataz.util.InputValidator;
 import main.java.com.cappataz.dao.UsuarioDAO;
 import main.java.com.cappataz.modelo.Propietario;

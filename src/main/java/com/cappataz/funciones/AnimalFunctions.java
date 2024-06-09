@@ -2,14 +2,8 @@ package main.java.com.cappataz.funciones;
 
 import main.java.com.cappataz.controlador.AnimalController;
 import main.java.com.cappataz.controlador.EventoSanitarioController;
-import main.java.com.cappataz.dao.AnimalDAO;
-import main.java.com.cappataz.modelo.Animal;
 import main.java.com.cappataz.vista.AnimalView;
 import main.java.com.cappataz.vista.EventoSanitarioView;
-import main.java.com.cappataz.util.ConsoleUtils;
-
-import java.util.List;
-import java.util.Scanner;
 
 public class AnimalFunctions {
 
