@@ -17,15 +17,15 @@ public class EventoSanitarioFunctions {
         eventoSanitarioController.registrarEventoSanitarioAnimal();
     }
 
-    public static void mostrarEventosSanitariosLote() {
-        EventoSanitarioView eventoSanitarioView = new EventoSanitarioView();
-        EventoSanitarioController eventoSanitarioController = new EventoSanitarioController(eventoSanitarioView);
-        eventoSanitarioController.mostrarEventosSanitariosLote();
-    }
+    // public static void mostrarEventosSanitariosLote() {
+    //     EventoSanitarioView eventoSanitarioView = new EventoSanitarioView();
+    //     EventoSanitarioController eventoSanitarioController = new EventoSanitarioController(eventoSanitarioView);
+    //     eventoSanitarioController.mostrarEventosSanitariosLote();
+    // }
 
-    public static void mostrarEventosSanitariosAnimal() {
-        EventoSanitarioView eventoSanitarioView = new EventoSanitarioView();
-        EventoSanitarioController eventoSanitarioController = new EventoSanitarioController(eventoSanitarioView);
-        eventoSanitarioController.mostrarEventosSanitariosAnimal();
-    }
+    // public static void mostrarEventosSanitariosAnimal() {
+    //     EventoSanitarioView eventoSanitarioView = new EventoSanitarioView();
+    //     EventoSanitarioController eventoSanitarioController = new EventoSanitarioController(eventoSanitarioView);
+    //     eventoSanitarioController.mostrarEventosSanitariosAnimal();
+    // }
 }
