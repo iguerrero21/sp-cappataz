@@ -7,12 +7,17 @@ import main.java.com.cappataz.vista.EventoSanitarioView;
 
 public class AnimalFunctions {
 
+    
     public static void registrarAnimal() {
         AnimalView animalView = new AnimalView();
         AnimalController animalController = new AnimalController(animalView);
         animalController.saveAnimal();
     }
 
+    
+    /** 
+     * @param idPropietario
+     */
     public static void mostrarAnimalesPorPropietario(int idPropietario) {
         AnimalView animalView = new AnimalView();
         AnimalController animalController = new AnimalController(animalView);

@@ -49,6 +49,10 @@ public class UsuarioFunctions {
         usuarioController.deleteUsuario();
     }
 
+    
+    /** 
+     * @return Propietario
+     */
     public static Propietario seleccionarPropietario() {
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         List<Propietario> propietarios = usuarioDAO.getPropietarios();

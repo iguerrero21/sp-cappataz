@@ -4,6 +4,7 @@ import main.java.com.cappataz.controlador.EventoSanitarioController;
 import main.java.com.cappataz.vista.EventoSanitarioView;
 
 public class EventoSanitarioFunctions {
+    
     public static void registrarEventoSanitarioLote() {
         EventoSanitarioView eventoSanitarioView = new EventoSanitarioView();
         EventoSanitarioController eventoSanitarioController = new EventoSanitarioController(eventoSanitarioView);

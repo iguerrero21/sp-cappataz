@@ -15,15 +15,8 @@ public class DatabaseConnection {
                 String password = System.getenv("DB_PASSWORD");
 
                 if (url == null || user == null || password == null) {
-                    throw new SQLException("Database credentials are not set in environment variables.");
+                    throw new SQLException("Las credenciales de la base de datos no están configuradas en las variables de entorno del sistema. Por favor, configure correctamente las variables DB_URL, DB_USERNAME y DB_PASSWORD con los datos de su entorno.");
                 }
-
-                // // Añadir configuración para UTF-8 en la URL de conexión
-                // if (url != null && !url.contains("useUnicode")) {
-                //     url += "?useUnicode=true&characterEncoding=utf8mb4";
-                // } else {
-                //     url += "&useUnicode=true&characterEncoding=utf8mb4";
-                // }
 
                 connection = DriverManager.getConnection(url, user, password);
             }

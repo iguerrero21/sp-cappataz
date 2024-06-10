@@ -69,6 +69,13 @@ Las librerías ya se encuentran preinstaladas en la carpeta **/lib**, pero tal v
 
 2. Instalar la base de datos con el script `cappataz_db.sql` en MySQL Workbench. La misma se encuentra en la raíz del proyecto.
 
+3. Las variables de entorno DB_URL, DB_USERNAME y DB_PASSWORD deben estar configuradas con los datos de sus sistema. 
+
+Ejemplo:
+- DB_URL = jdbc:mysql://localhost:3306/sp_cappataz
+- DB_USERNAME = root
+- DB_PASWORD = mypassword
+
 
 ## Utilización
 
