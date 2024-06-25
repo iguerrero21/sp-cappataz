@@ -40,6 +40,10 @@ public class Propiedad {
         this.idPropietario = idPropietario;
     }
 
+    public Propiedad() {
+        //TODO Auto-generated constructor stub
+    }
+
     // Getters y Setters
     public int getIdPropiedad() {
         return idPropiedad;

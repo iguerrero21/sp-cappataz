@@ -30,6 +30,10 @@ public class UsuarioController {
     public IUsuario login() {
         String email = view.getEmailForLogin();
         String contrasena = view.getPasswordForLogin();
+        return login(email, contrasena);
+    }
+
+    public IUsuario login(String email, String contrasena) {
         IUsuario usuario = dao.getUsuarioByEmailAndPassword(email, contrasena);
         if (usuario != null) {
             view.mostrarLogueoExitoso(usuario.getNombre());

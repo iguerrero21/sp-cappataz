@@ -146,4 +146,38 @@ public class PropiedadDAO {
             throw new RuntimeException("Error al actualizar la propiedad");
         }
     }
+
+    public void deletePropiedad(int idPropiedad) {
+        try (Connection conn = DatabaseConnection.getConnection()) {
+            // Borrar parcelas asociadas a la propiedad
+            String deleteParcelasQuery = "DELETE FROM Parcelas WHERE idPropiedad = ?";
+            try (PreparedStatement pstmtParcelas = conn.prepareStatement(deleteParcelasQuery)) {
+                pstmtParcelas.setInt(1, idPropiedad);
+                pstmtParcelas.executeUpdate();
+            }
+
+            // Mover animales a un lote desconocido
+            String updateAnimalesQuery = "UPDATE Animales SET idLote = (SELECT idLote FROM Lotes WHERE nombreLote = 'Desconocido') WHERE idLote IN (SELECT idLote FROM Lotes WHERE idPropiedad = ?)";
+            try (PreparedStatement pstmtAnimales = conn.prepareStatement(updateAnimalesQuery)) {
+                pstmtAnimales.setInt(1, idPropiedad);
+                pstmtAnimales.executeUpdate();
+            }
+
+            // Borrar lotes asociados a la propiedad
+            String deleteLotesQuery = "DELETE FROM Lotes WHERE idPropiedad = ?";
+            try (PreparedStatement pstmtLotes = conn.prepareStatement(deleteLotesQuery)) {
+                pstmtLotes.setInt(1, idPropiedad);
+                pstmtLotes.executeUpdate();
+            }
+
+            // Borrar la propiedad
+            String deletePropiedadQuery = "DELETE FROM Propiedades WHERE idPropiedad = ?";
+            try (PreparedStatement pstmtPropiedad = conn.prepareStatement(deletePropiedadQuery)) {
+                pstmtPropiedad.setInt(1, idPropiedad);
+                pstmtPropiedad.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -11,51 +11,36 @@ public class PropiedadFunctions {
 
     public static void registrarPropiedad() {
         PropiedadView propiedadView = new PropiedadView();
-        Propiedad propiedad = new Propiedad(
-                0,
-                propiedadView.getNombrePropiedad(),
-                propiedadView.getUbicacion(),
-                propiedadView.getSuperficie(),
-                propiedadView.getTipoPropiedad(),
-                null,
-                propiedadView.getIdPropietario());
         PropiedadController propiedadController = new PropiedadController(propiedadView);
-        propiedadController.savePropiedad(propiedad);
+        propiedadController.registrarPropiedad(); // Muestra el diálogo para ingresar datos de la nueva propiedad
     }
 
     public static void crearParcelas() {
         ParcelaView parcelaView = new ParcelaView();
-        Parcela parcela = new Parcela(
-                0,
-                parcelaView.getNombreParcela(),
-                parcelaView.getUbicacion(),
-                parcelaView.getSuperficie(),
-                parcelaView.getUso(),
-                parcelaView.getIdPropiedad());
-        ParcelaController parcelaController = new ParcelaController(parcela, parcelaView);
-        parcelaController.saveParcela();
+        ParcelaController parcelaController = new ParcelaController(parcelaView);
+        parcelaController.registrarParcela(); // Muestra el diálogo para ingresar datos de la nueva parcela
     }
 
     public static void modificarPropiedad() {
         PropiedadView propiedadView = new PropiedadView();
-        int idPropiedad = propiedadView.getIdPropiedad();
         PropiedadController propiedadController = new PropiedadController(propiedadView);
+        int idPropiedad = propiedadView.getIdPropiedad();
         propiedadController.modifyPropiedad(idPropiedad);
     }
 
     public static void seleccionarPropiedad() {
         PropiedadView propiedadView = new PropiedadView();
-        int idPropiedad = propiedadView.getIdPropiedad();
         PropiedadController propiedadController = new PropiedadController(propiedadView);
+        int idPropiedad = propiedadView.getIdPropiedad();
         propiedadController.displayPropiedadById(idPropiedad);
-        ParcelaController parcelaController = new ParcelaController(null, new ParcelaView());
+        ParcelaController parcelaController = new ParcelaController(new ParcelaView());
         parcelaController.displayParcelasByPropiedad(idPropiedad);
     }
 
     public static void mostrarPropiedadesPaginado() {
         PropiedadView propiedadView = new PropiedadView();
         PropiedadController propiedadController = new PropiedadController(propiedadView);
-        propiedadController.gestionarPropiedades(); // Llama al método para gestionar propiedades
+        propiedadController.gestionarPropiedades();
     }
 
     public static void filtrarPropiedadesPorPropietario() {

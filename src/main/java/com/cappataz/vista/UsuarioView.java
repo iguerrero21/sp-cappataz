@@ -35,7 +35,8 @@ public class UsuarioView {
 
     public void mostrarDetallesUsuario(IUsuario usuario) {
         System.out.println(
-                "Usuario guardado: " + usuario.getNombre() + " " + usuario.getApellido() + " (" + usuario.getEmail() + "), Rol: " + usuario.getIdRol());
+                "Usuario guardado: " + usuario.getNombre() + " " + usuario.getApellido() + " (" + usuario.getEmail()
+                        + "), Rol: " + usuario.getIdRol());
     }
 
     public String getEmailForLogin() {

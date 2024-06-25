@@ -12,6 +12,11 @@ public class Administrador implements IUsuario {
     private Date fechaActualizacion;
     private int idRol;
 
+    
+
+    public Administrador() {
+    }
+
     public Administrador(int idUsuario, String nombre, String apellido, String email, String contrasena) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;

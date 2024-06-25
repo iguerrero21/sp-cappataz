@@ -12,22 +12,6 @@ import java.util.List;
 
 public class ParcelaDAO {
 
-    public void saveParcela(Parcela parcela) {
-        String query = "INSERT INTO Parcelas (nombreParcela, ubicacion, superficie, uso, idPropiedad) VALUES (?, ?, ?, ?, ?)";
-        try (Connection conn = DatabaseConnection.getConnection();
-                PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setString(1, parcela.getNombreParcela());
-            pstmt.setString(2, parcela.getUbicacion());
-            pstmt.setDouble(3, parcela.getSuperficie());
-            pstmt.setString(4, parcela.getUso());
-            pstmt.setInt(5, parcela.getIdPropiedad());
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw new RuntimeException("Error al guardar la parcela");
-        }
-    }
-
     public List<Parcela> getParcelasByPropiedad(int idPropiedad) {
         List<Parcela> parcelas = new ArrayList<>();
         String query = "SELECT * FROM Parcelas WHERE idPropiedad = ?";
@@ -53,27 +37,19 @@ public class ParcelaDAO {
         return parcelas;
     }
 
-    public Parcela getParcelaById(int idParcela) {
-        Parcela parcela = null;
-        String query = "SELECT * FROM Parcelas WHERE idParcela = ?";
+    public void saveParcela(Parcela parcela) {
+        String query = "INSERT INTO Parcelas (nombreParcela, ubicacion, superficie, uso, idPropiedad) VALUES (?, ?, ?, ?, ?)";
         try (Connection conn = DatabaseConnection.getConnection();
                 PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setInt(1, idParcela);
-            try (ResultSet rs = pstmt.executeQuery()) {
-                if (rs.next()) {
-                    parcela = new Parcela(
-                            rs.getInt("idParcela"),
-                            rs.getString("nombreParcela"),
-                            rs.getString("ubicacion"),
-                            rs.getDouble("superficie"),
-                            rs.getString("uso"),
-                            rs.getInt("idPropiedad"));
-                }
-            }
+            pstmt.setString(1, parcela.getNombreParcela());
+            pstmt.setString(2, parcela.getUbicacion());
+            pstmt.setDouble(3, parcela.getSuperficie());
+            pstmt.setString(4, parcela.getUso());
+            pstmt.setInt(5, parcela.getIdPropiedad());
+            pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-            throw new RuntimeException("Error al obtener la parcela por ID");
+            throw new RuntimeException("Error al guardar la parcela");
         }
-        return parcela;
     }
 }

@@ -2,60 +2,55 @@ package main.java.com.cappataz.vista;
 
 import main.java.com.cappataz.modelo.Parcela;
 
+import javax.swing.*;
 import java.util.List;
 import java.util.Scanner;
 
 public class ParcelaView {
     private Scanner scanner = new Scanner(System.in);
 
-    public int getIdPropiedad() {
-        System.out.print("Ingrese el ID de la propiedad: ");
-        return scanner.nextInt();
-    }
-
-    public String getNombreParcela() {
+    public Parcela obtenerDatosParcela() {
         System.out.print("Ingrese el nombre de la parcela: ");
-        return scanner.next();
-    }
+        String nombreParcela = scanner.nextLine();
 
-    public String getUbicacion() {
         System.out.print("Ingrese la ubicación de la parcela: ");
-        return scanner.next();
-    }
+        String ubicacion = scanner.nextLine();
 
-    public double getSuperficie() {
         System.out.print("Ingrese la superficie de la parcela: ");
-        return scanner.nextDouble();
-    }
+        double superficie = scanner.nextDouble();
 
-    public String getUso() {
         System.out.print("Ingrese el uso de la parcela: ");
-        return scanner.next();
+        String uso = scanner.next();
+
+        System.out.print("Ingrese el ID de la propiedad: ");
+        int idPropiedad = scanner.nextInt();
+
+        return new Parcela(0, nombreParcela, ubicacion, superficie, uso, idPropiedad);
     }
 
-    public void mostrarDetallesParcelas(Parcela parcela) {
-        System.out.printf("%-5s %-20s %-20s %-10s %-15s %-15s%n",
-                "ID", "Nombre", "Ubicación", "Superficie", "Uso", "ID Propiedad");
-        System.out.printf("%-5d %-20s %-20s %-10.2f %-15s %-15d%n",
-                parcela.getIdParcela(),
-                parcela.getNombreParcela(),
-                parcela.getUbicacion(),
-                parcela.getSuperficie(),
-                parcela.getUso(),
-                parcela.getIdPropiedad());
-    }
+    public void mostrarParcelas(List<Parcela> parcelas) {
+        String[] columnNames = { "ID", "Nombre", "Ubicación", "Superficie", "Uso" };
+        Object[][] data = new Object[parcelas.size()][5];
 
-    public void mostrarTodasLasParcelas(List<Parcela> parcelas) {
-        System.out.printf("%-5s %-20s %-20s %-10s %-15s %-15s%n",
-                "ID", "Nombre", "Ubicación", "Superficie", "Uso", "ID Propiedad");
-        for (Parcela parcela : parcelas) {
-            System.out.printf("%-5d %-20s %-20s %-10.2f %-15s %-15d%n",
-                    parcela.getIdParcela(),
-                    parcela.getNombreParcela(),
-                    parcela.getUbicacion(),
-                    parcela.getSuperficie(),
-                    parcela.getUso(),
-                    parcela.getIdPropiedad());
+        for (int i = 0; i < parcelas.size(); i++) {
+            Parcela parcela = parcelas.get(i);
+            data[i][0] = parcela.getIdParcela();
+            data[i][1] = parcela.getNombreParcela();
+            data[i][2] = parcela.getUbicacion();
+            data[i][3] = parcela.getSuperficie();
+            data[i][4] = parcela.getUso();
         }
+
+        JTable table = new JTable(data, columnNames);
+        JScrollPane scrollPane = new JScrollPane(table);
+        JFrame frame = new JFrame("Parcelas");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.add(scrollPane);
+        frame.pack();
+        frame.setVisible(true);
+    }
+
+    public void mostrarMensaje(String mensaje) {
+        System.out.println(mensaje);
     }
 }
