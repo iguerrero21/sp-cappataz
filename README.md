@@ -74,7 +74,7 @@ Las librerías ya se encuentran preinstaladas en la carpeta **/lib**, pero tal v
 Ejemplo:
 - DB_URL = jdbc:mysql://localhost:3306/sp_cappataz
 - DB_USERNAME = root
-- DB_PASWORD = mypassword
+- DB_PASSWORD = mypassword
 
 
 ## Utilización

@@ -2,23 +2,29 @@ package main.java.com.cappataz.controlador;
 
 import main.java.com.cappataz.dao.PropiedadDAO;
 import main.java.com.cappataz.dao.UsuarioDAO;
+import main.java.com.cappataz.dao.ParcelaDAO;
 import main.java.com.cappataz.modelo.Propiedad;
 import main.java.com.cappataz.modelo.Propietario;
+import main.java.com.cappataz.modelo.Parcela;
 import main.java.com.cappataz.vista.PropiedadView;
+import main.java.com.cappataz.vista.ParcelaView;
 
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class PropiedadController {
     private PropiedadView view;
     private PropiedadDAO dao;
     private UsuarioDAO usuarioDAO;
+    private ParcelaDAO parcelaDAO;
+    private ParcelaView parcelaView;
 
     public PropiedadController(PropiedadView view) {
         this.view = view;
         this.dao = new PropiedadDAO();
         this.usuarioDAO = new UsuarioDAO();
+        this.parcelaDAO = new ParcelaDAO();
+        this.parcelaView = new ParcelaView();
     }
 
     public void savePropiedad(Propiedad propiedad) {
@@ -46,6 +52,10 @@ public class PropiedadController {
             Propietario propietario = usuarioDAO.getPropietarioById(propiedad.getIdPropietario());
             view.mostrarDetallesPropiedadConPropietario(propiedad,
                     propietario.getNombre() + " " + propietario.getApellido());
+
+            // Obtener y mostrar parcelas asociadas a la propiedad
+            List<Parcela> parcelas = parcelaDAO.getParcelasByPropiedad(idPropiedad);
+            parcelaView.mostrarTodasLasParcelas(parcelas);
         } else {
             view.mostrarError("Propiedad no encontrada");
         }
