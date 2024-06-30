@@ -22,6 +22,10 @@ public class Operario implements IUsuario {
         this.idRol = 3; // Rol de Operario
     }
 
+    public Operario() {
+        //TODO Auto-generated constructor stub
+    }
+
     // Getters y Setters
     public int getIdUsuario() {
         return idUsuario;

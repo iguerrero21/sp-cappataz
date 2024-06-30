@@ -39,6 +39,10 @@ public class Propietario implements IUsuario {
         this.idRol = 2; // Rol de Propietario
     }
 
+    public Propietario() {
+        //TODO Auto-generated constructor stub
+    }
+
     // Getters y Setters
     @Override
     public int getIdUsuario() {

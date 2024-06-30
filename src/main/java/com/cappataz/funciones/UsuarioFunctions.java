@@ -4,16 +4,39 @@ import main.java.com.cappataz.controlador.UsuarioController;
 import main.java.com.cappataz.vista.UsuarioView;
 import main.java.com.cappataz.util.InputValidator;
 import main.java.com.cappataz.dao.UsuarioDAO;
+import main.java.com.cappataz.modelo.Administrador;
+import main.java.com.cappataz.modelo.IUsuario;
+import main.java.com.cappataz.modelo.Operario;
 import main.java.com.cappataz.modelo.Propietario;
 
 import java.util.List;
 import java.util.Scanner;
 
 public class UsuarioFunctions {
+
     public static void registrarUsuario() {
         UsuarioView usuarioView = new UsuarioView();
-        UsuarioController usuarioController = new UsuarioController(null, usuarioView);
-        usuarioController.saveUsuario();
+        int rol = usuarioView.getIdRol();
+
+        IUsuario nuevoUsuario;
+        
+        switch (rol) {
+            case 1:
+                nuevoUsuario = new Administrador();
+                break;
+            case 2:
+                nuevoUsuario = new Propietario();
+                break;
+            case 3:
+                nuevoUsuario = new Operario();
+                break;
+            default:
+                usuarioView.mostrarMensaje("Rol no válido. Registro cancelado.");
+                return;
+        }
+
+        UsuarioController usuarioController = new UsuarioController(nuevoUsuario, usuarioView);
+        usuarioController.saveUsuario(rol);
     }
 
     public static void mostrarUsuarios() {

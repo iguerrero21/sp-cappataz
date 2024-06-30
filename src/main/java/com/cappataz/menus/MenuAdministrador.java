@@ -6,6 +6,7 @@ import main.java.com.cappataz.funciones.PropiedadFunctions;
 import main.java.com.cappataz.funciones.LotesFunctions;
 import main.java.com.cappataz.modelo.Administrador;
 import main.java.com.cappataz.util.InputValidator;
+import main.java.com.cappataz.vista.LoteView;
 
 import java.util.Scanner;
 
@@ -186,6 +187,7 @@ public class MenuAdministrador {
 
             switch (choice) {
                 case 1:
+                    LotesFunctions.mostrarLotesConAnimales(); // Mostrar lotes con animales
                     LotesFunctions.registrarEventoSanitarioLote();
                     break;
                 case 2:

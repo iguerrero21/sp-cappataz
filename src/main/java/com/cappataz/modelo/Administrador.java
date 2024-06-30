@@ -21,6 +21,10 @@ public class Administrador implements IUsuario {
         this.idRol = 1; // Rol de Administrador
     }
 
+    public Administrador() {
+        //TODO Auto-generated constructor stub
+    }
+
     // Getters y Setters
     public int getIdUsuario() {
         return idUsuario;

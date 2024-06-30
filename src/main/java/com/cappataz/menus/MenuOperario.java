@@ -3,6 +3,7 @@ package main.java.com.cappataz.menus;
 import main.java.com.cappataz.funciones.AnimalFunctions;
 import main.java.com.cappataz.funciones.LotesFunctions;
 import main.java.com.cappataz.util.InputValidator;
+import main.java.com.cappataz.vista.LoteView;
 import main.java.com.cappataz.modelo.Operario;
 
 import java.util.Scanner;
@@ -118,6 +119,7 @@ public class MenuOperario {
 
             switch (choice) {
                 case 1:
+                    LotesFunctions.mostrarLotesConAnimales(); // Mostrar lotes con animales
                     LotesFunctions.registrarEventoSanitarioLote();
                     break;
                 case 2:

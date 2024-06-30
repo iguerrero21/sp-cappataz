@@ -1,5 +1,6 @@
 package main.java.com.cappataz.vista;
 
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -29,8 +30,20 @@ public class UsuarioView {
     }
 
     public int getIdRol() {
-        System.out.print("Ingrese rol del usuario: ");
-        return scanner.nextInt();
+        int rol = -1;
+        while (rol < 1 || rol > 3) {
+            try {
+                System.out.print("Ingrese el número correspondiente al rol (1-Administrador, 2-Propietario, 3-Operario): ");
+                rol = scanner.nextInt();
+                if (rol < 1 || rol > 3) {
+                    System.out.println("Rol no válido. Por favor, ingrese un número entre 1 y 3.");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Entrada no válida. Por favor, ingrese un número.");
+                scanner.next(); // Limpiar la entrada inválida
+            }
+        }
+        return rol;
     }
 
     public void mostrarDetallesUsuario(IUsuario usuario) {

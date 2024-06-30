@@ -15,6 +15,12 @@ public class LotesFunctions {
         loteController.mostrarAnimalesPorLote(idLote);
     }
 
+    public static void mostrarLotesConAnimales() {
+        LoteView loteView = new LoteView();
+        LoteController loteController = new LoteController(null, loteView);
+        loteController.mostrarLotesConAnimales();
+    }
+
     public static void registrarLote() {
         LoteView loteView = new LoteView();
         LoteController loteController = new LoteController(null, loteView);

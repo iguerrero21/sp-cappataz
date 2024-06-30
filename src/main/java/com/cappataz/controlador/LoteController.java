@@ -55,7 +55,7 @@ public class LoteController {
         Lote lote = dao.getLoteById(idLote);
         if (lote != null) {
             Lote datosActualizados = view.obtenerDatosLote();
-            lote.setNombre(datosActualizados.getNombre());
+            lote.setNombreLote(datosActualizados.getNombreLote());
             lote.setIdPropietario(datosActualizados.getIdPropietario());
             lote.setIdParcela(datosActualizados.getIdParcela());
             dao.updateLote(lote);
@@ -75,6 +75,11 @@ public class LoteController {
         List<Animal> animales = animalDao.getAnimalesPorLote(idLote);
         AnimalView animalView = new AnimalView();
         animalView.mostrarDetallesdeTodoslosAnimales(animales);
+    }
+
+    public void mostrarLotesConAnimales() {
+        List<Lote> lotes = dao.getLotesConAnimales();
+        view.mostrarLotesConAnimales(lotes);
     }
 
     public void registrarEventoSanitarioLote() {

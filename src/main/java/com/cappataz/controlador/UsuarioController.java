@@ -17,12 +17,12 @@ public class UsuarioController {
         this.dao = new UsuarioDAO();
     }
 
-    public void saveUsuario() {
+    public void saveUsuario(int idRol) {
         model.setNombre(view.getNombre());
         model.setApellido(view.getApellido());
         model.setEmail(view.getEmail());
         model.setContrasena(view.getPasswordForLogin()); // Guardar la contraseña antes de hashear
-        model.setIdRol(view.getIdRol());
+        model.setIdRol(idRol);
         dao.saveUsuario(model);
         view.mostrarDetallesUsuario(model);
     }

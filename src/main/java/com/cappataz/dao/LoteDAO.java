@@ -17,7 +17,7 @@ public class LoteDAO {
         String query = "INSERT INTO Lotes (nombreLote, idPropietario, idParcela, fechaCreacion) VALUES (?, ?, ?, ?)";
         try (Connection conn = DatabaseConnection.getConnection();
                 PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setString(1, lote.getNombre());
+            pstmt.setString(1, lote.getNombreLote());
             pstmt.setInt(2, lote.getIdPropietario());
             pstmt.setInt(3, lote.getIdParcela());
             pstmt.setDate(4, new Date(System.currentTimeMillis()));
@@ -103,14 +103,37 @@ public class LoteDAO {
         return lote;
     }
 
+    public List<Lote> getLotesConAnimales() {
+        List<Lote> lotes = new ArrayList<>();
+        String query = "SELECT l.idLote, l.nombreLote, COUNT(a.idAnimal) AS cantidadAnimales " +
+                "FROM Lotes l " +
+                "LEFT JOIN Animales a ON l.idLote = a.idLote " +
+                "GROUP BY l.idLote " +
+                "HAVING COUNT(a.idAnimal) > 0";
+        try (Connection conn = DatabaseConnection.getConnection();
+                PreparedStatement pstmt = conn.prepareStatement(query);
+                ResultSet rs = pstmt.executeQuery()) {
+            while (rs.next()) {
+                Lote lote = new Lote();
+                lote.setIdLote(rs.getInt("idLote"));
+                lote.setNombreLote(rs.getString("nombreLote"));
+                lote.setCantidadAnimales(rs.getInt("cantidadAnimales"));
+                lotes.add(lote);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return lotes;
+    }
+
     public void updateLote(Lote lote) {
         String query = "UPDATE Lotes SET nombreLote = ?, idPropietario = ?, idParcela = ? WHERE idLote = ?";
         try (Connection conn = DatabaseConnection.getConnection();
                 PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setString(1, lote.getNombre());
+            pstmt.setString(1, lote.getNombreLote());
             pstmt.setInt(2, lote.getIdPropietario());
             pstmt.setInt(3, lote.getIdParcela());
-            pstmt.setInt(4, lote.getId());
+            pstmt.setInt(4, lote.getIdLote());
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
