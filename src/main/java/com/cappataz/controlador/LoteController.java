@@ -13,6 +13,7 @@ import main.java.com.cappataz.vista.EventoSanitarioView;
 import java.util.List;
 
 public class LoteController {
+    @SuppressWarnings("unused")
     private Lote model;
     private LoteView view;
     private LoteDAO dao;

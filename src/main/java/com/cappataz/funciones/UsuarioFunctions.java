@@ -39,6 +39,7 @@ public class UsuarioFunctions {
         usuarioController.saveUsuario(rol);
     }
 
+    @SuppressWarnings("resource")
     public static void mostrarUsuarios() {
         UsuarioView usuarioView = new UsuarioView();
         UsuarioController usuarioController = new UsuarioController(null, usuarioView);

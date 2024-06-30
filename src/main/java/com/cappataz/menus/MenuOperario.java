@@ -3,12 +3,12 @@ package main.java.com.cappataz.menus;
 import main.java.com.cappataz.funciones.AnimalFunctions;
 import main.java.com.cappataz.funciones.LotesFunctions;
 import main.java.com.cappataz.util.InputValidator;
-import main.java.com.cappataz.vista.LoteView;
 import main.java.com.cappataz.modelo.Operario;
 
 import java.util.Scanner;
 
 public class MenuOperario {
+    @SuppressWarnings("unused")
     private Operario operario;
 
     public MenuOperario(Operario operario) {

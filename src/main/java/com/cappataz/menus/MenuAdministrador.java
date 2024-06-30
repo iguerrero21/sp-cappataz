@@ -6,15 +6,13 @@ import main.java.com.cappataz.funciones.PropiedadFunctions;
 import main.java.com.cappataz.funciones.LotesFunctions;
 import main.java.com.cappataz.modelo.Administrador;
 import main.java.com.cappataz.util.InputValidator;
-import main.java.com.cappataz.vista.LoteView;
-
 import java.util.Scanner;
 
 public class MenuAdministrador {
-    private Administrador admin;
 
+    @SuppressWarnings("unused")
+    private Administrador admin;
     public MenuAdministrador(Administrador admin) {
-        this.admin = admin;
     }
 
     public void mostrarMenu() {
